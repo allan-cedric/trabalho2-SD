@@ -88,8 +88,9 @@ int main(int argc, char *argv[])
   reset();
   stream(1);
 
-  printf("Trabalho pratico 0 da disciplina de Sistemas Distribuidos (CI1088)\n\n"
-         "Implementacao do detector de falhas vCube no ambiente de simulação SMPL\n\n"
+  printf("Trabalho pratico 2 da disciplina de Sistemas Distribuidos (CI1088)\n\n"
+         "Implementacao do detector de falhas vCube no ambiente de simulação SMPL\n"
+         "(Versao assincrona com falsa suspeitas)\n\n"
          "Autor: Allan Cedric G. B. Alves da Silva - GRR20190351\n\n");
 
   printf("Info.: N = %i\n\n", N);
