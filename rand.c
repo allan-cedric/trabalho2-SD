@@ -95,7 +95,7 @@ real uniform(a,b)
     }
 
 /*--------------------  RANDOM INTEGER GENERATOR  --------------------*/
-random(i,n)
+randomic(i,n)
   int i,n;
     { /* 'random' returns an integer equiprobably selected from the   */
       /* set of integers i, i+1, i+2, . . , n.                        */
