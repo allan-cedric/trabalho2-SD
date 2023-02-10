@@ -60,13 +60,13 @@ int main(int argc, char *argv[])
       r,
       i, j;
 
-  int *ini_rodada_arr; /* ini_rodada para cada processo */
+  int *ini_rodada_arr; /* ini_rodada para cada processo (util para saber a rodada inicial de uma falsa suspeita) */
 
   static char fa_name[5];
 
   if (argc != 3)
   {
-    puts("Uso correto: vcube <num-processos> <prob-falsa-suspeita>");
+    puts("Uso correto: vcube <num-processos> <prob-falsa-suspeita-em-%%>");
     exit(1);
   }
 
@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
          "(Versao assincrona com falsa suspeitas)\n\n"
          "Autor: Allan Cedric G. B. Alves da Silva - GRR20190351\n\n");
 
-  printf("Info.: N = %i\n\n", N);
+  printf("Info.: N = %i, PROB = %i%% \n\n", N, PROB);
 
   /*----- inicializacao -----*/
 
@@ -175,9 +175,10 @@ int main(int argc, char *argv[])
             // processo i deve ser exatamente o processo atual
             if(token == pi)
             {
-              int fs = 0;
+              int fs = 0; // indica falsa suspeita
               if(testa(processo[pj]) || (fs = falsa_suspeita(PROB))) // processo j falho ou falsa suspeita
               {
+                // falsa suspeita de pj e rodada inicial de falsa suspeita
                 if(fs && ini_rodada_arr[pj] == 0)
                   ini_rodada_arr[pj] = cont_rodada;
 
@@ -201,6 +202,7 @@ int main(int argc, char *argv[])
               {
                 printf("o processo %i testou o processo %i CORRETO no tempo %5.1f\n", token, pj, time());
 
+                // processo testador token descobre que foi vitima de falsa suspeita, entao encerra
                 if(processo[pj].State[token] % 2 == 1 && processo[pj].State[token] != unknown) {
                   r = request(processo[token].id, token, 0);
                   processo[token].term = 1;
@@ -239,6 +241,7 @@ int main(int argc, char *argv[])
         }
         // fim vcube
 
+        // processo nao vai encerrar ?
         if(!processo[token].term) {
           if(num_max_falhas == N-1)
             processo[token].rodada_flag = 1;
@@ -298,6 +301,7 @@ int main(int argc, char *argv[])
           nova_rodada = 1;
         }
 
+        // processo nao vai encerrar ?
         if(!processo[token].term)
           schedule(test, 30.0, token);
         break;

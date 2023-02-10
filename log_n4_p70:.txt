@@ -1,0 +1,112 @@
+Trabalho pratico 2 da disciplina de Sistemas Distribuidos (CI1088)
+
+Implementacao do detector de falhas vCube no ambiente de simulação SMPL
+(Versao assincrona com falsa suspeitas)
+
+Autor: Allan Cedric G. B. Alves da Silva - GRR20190351
+
+Info.: N = 4, PROB = 70% 
+
+
+**************** RODADA 1 ****************
+
+o processo 0 testou o processo 1 FALHO no tempo  30.0 <falsa_suspeita>
+o processo 0 testou o processo 2 FALHO no tempo  30.0 <falsa_suspeita>
+State_0: {0, 1, 1, -1}
+
+o processo 1 testou o processo 0 FALHO no tempo  30.0 <falsa_suspeita>
+o processo 1 testou o processo 3 FALHO no tempo  30.0 <falsa_suspeita>
+State_1: {1, 0, -1, 1}
+
+o processo 2 testou o processo 3 CORRETO no tempo  30.0
+o processo 2 testou o processo 0 FALHO no tempo  30.0 <falsa_suspeita>
+State_2: {1, -1, 0, 0}
+
+o processo 3 testou o processo 2 CORRETO no tempo  30.0
+o processo 3 testou o processo 1 CORRETO no tempo  30.0
+o processo 3 encerrou sua EXECUCAO no tempo  30.0
+--- NUM. RODADAS: 1 ---
+
+o processo 0 testou o processo 1 CORRETO no tempo  60.0
+o processo 0 encerrou sua EXECUCAO no tempo  60.0
+--- NUM. RODADAS: 1 ---
+
+o processo 1 testou o processo 0 FALHO no tempo  60.0
+o processo 1 testou o processo 3 FALHO no tempo  60.0
+o processo 1 testou o processo 2 FALHO no tempo  60.0 <falsa_suspeita>
+State_1: {1, 0, 1, 1}
+
+**************** FIM DA RODADA 1 ****************
+
+
+
+**************** RODADA 2 ****************
+
+o processo 2 testou o processo 3 FALHO no tempo  60.0
+o processo 2 testou o processo 0 FALHO no tempo  60.0
+o processo 2 testou o processo 1 FALHO no tempo  60.0 <falsa_suspeita>
+State_2: {1, 1, 0, 1}
+
+o processo 1 testou o processo 0 FALHO no tempo  90.0
+o processo 1 testou o processo 3 FALHO no tempo  90.0
+o processo 1 testou o processo 2 FALHO no tempo  90.0 <falsa_suspeita>
+State_1: {1, 0, 1, 1}
+
+**************** FIM DA RODADA 2 ****************
+
+
+
+**************** RODADA 3 ****************
+
+o processo 2 testou o processo 3 FALHO no tempo  90.0
+o processo 2 testou o processo 0 FALHO no tempo  90.0
+o processo 2 testou o processo 1 FALHO no tempo  90.0 <falsa_suspeita>
+State_2: {1, 1, 0, 1}
+
+o processo 1 testou o processo 0 FALHO no tempo 120.0
+o processo 1 testou o processo 3 FALHO no tempo 120.0
+o processo 1 testou o processo 2 FALHO no tempo 120.0 <falsa_suspeita>
+State_1: {1, 0, 1, 1}
+
+**************** FIM DA RODADA 3 ****************
+
+
+
+**************** RODADA 4 ****************
+
+o processo 2 testou o processo 3 FALHO no tempo 120.0
+o processo 2 testou o processo 0 FALHO no tempo 120.0
+o processo 2 testou o processo 1 FALHO no tempo 120.0 <falsa_suspeita>
+State_2: {1, 1, 0, 1}
+
+o processo 1 testou o processo 0 FALHO no tempo 150.0
+o processo 1 testou o processo 3 FALHO no tempo 150.0
+o processo 1 testou o processo 2 CORRETO no tempo 150.0
+o processo 1 encerrou sua EXECUCAO no tempo 150.0
+--- NUM. RODADAS: 4 ---
+
+**************** FIM DA RODADA 4 ****************
+
+
+
+**************** RODADA 5 ****************
+
+o processo 2 testou o processo 3 FALHO no tempo 150.0
+o processo 2 testou o processo 0 FALHO no tempo 150.0
+o processo 2 testou o processo 1 FALHO no tempo 150.0
+State_2: {1, 1, 0, 1}
+
+**************** FIM DA RODADA 5 ****************
+
+
+
+**************** RODADA 6 ****************
+
+o processo 2 testou o processo 3 FALHO no tempo 180.0
+o processo 2 testou o processo 0 FALHO no tempo 180.0
+o processo 2 testou o processo 1 FALHO no tempo 180.0
+State_2: {1, 1, 0, 1}
+
+**************** FIM DA RODADA 6 ****************
+
+

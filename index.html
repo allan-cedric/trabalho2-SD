@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalho prático 2 - Sistemas Distribuídos</title>
+</head>
+<body>
+    <h1>Trabalho Prático 2 da disciplina de Sistemas Distribuídos (CI1088)</h1>
+    <h2>Autor: Allan Cedric G. B. Alves da Silva - GRR20190351</h2>
+
+    <p>
+        Este presente trabalho busca implementar e exemplificar na prática em um ambiente simulado a versão assíncrona com falsas suspeitas do algoritmo <b>VCube</b>. Basicamente esse trabalho foi construído encima do VCube do <a href="https://allan-cedric.github.io/trabalho1-SD/" target="_blank">Trabalho Pŕatico 1</a> com o acréscimo das falsas suspeitas.
+    </p>
+
+    <p>
+        Será disponibilizado uma descrição geral da estratégia escolhida p/ falsas suspeitas, código-fonte e logs de execução para alguns casos de teste.
+    </p>
+
+    <hr>
+
+    <h2>VCube assíncrono com falsas suspeitas</h2>
+
+    <p>
+        Para simular a <b>falsa suspeita</b>, quando um processo correto <b>i</b> testa um processo correto <b>j</b>, é calculado com base em uma certa <b>probabilidade</b> se vai ocorrer uma falsa suspeita, ou seja, o processo <b>i</b> pensa que o processo <b>j</b> está <b>falho</b>.
+    </p>
+
+    <p>
+        Função que calcula uma falsa suspeita (implementada com a função <b>randomic</b> de <i>rand.c</i> disponibilizada pelo professor):
+    </p>
+<pre>
+int falsa_suspeita(int prob)
+{
+  return randomic(1, 100) <= prob;
+}
+</pre>
+
+    <p>
+       Basicamente é gerado um <b>número aleatório equiprovável de 1 a 100</b>, e verificado se o valor gerado é menor que a probabilidade escolhida. (Ex.: prob = 30, significa que a função retorna 1 caso seja escolhido um valor de 1 a 30). 
+    </p>
+
+    <p>
+        Além disso, quando o processo correto <b>j</b> descobre que foi vítima de uma falsa suspeita, ele encerra sua execução imediatamente (<b>falha</b>).
+    </p>
+
+    <hr>
+
+    <h2>Código-fonte (arquivos alterados em relação ao <a href="https://allan-cedric.github.io/trabalho1-SD/" target="_blank">Trabalho 1</a>):</h2>
+
+    <ul>
+        <li><a href="./vcube.c.txt" target="_blank">vcube.c</a></li>
+        <li><a href="./smpl.h.txt" target="_blank">smpl.h</a> (correção: <i>export</i> do símbolo <i>random</i> para <i>randomic</i>, pois em <i>rand.c</i> é <i>randomic</i>)</li>
+    </ul>
+
+    <hr>
+
+    <h2>Logs de execução:</h2>
+
+    N = 4 processos (para 1%, 10%, 30%, 50% e 70% de chance de falsa suspeita):
+    <ul>
+        <li>./vcube 4 1 &gt; <a href="./log_n4_p1.txt" target="_blank">log_n4_p1.txt</a></li>
+        <li>./vcube 4 10 &gt; <a href="./log_n4_p10.txt" target="_blank">log_n4_p10.txt</a></li>
+        <li>./vcube 4 30 &gt; <a href="./log_n4_p30.txt" target="_blank">log_n4_p30.txt</a></li>
+        <li>./vcube 4 50 &gt; <a href="./log_n4_p50.txt" target="_blank">log_n4_p50.txt</a></li>
+        <li>./vcube 4 70 &gt; <a href="./log_n4_p70.txt" target="_blank">log_n4_p70.txt</a></li>
+    </ul>
+
+    N = 8 processos (para 1%, 10%, 30%, 50% e 70% de chance de falsa suspeita):
+    <ul>
+        <li>./vcube 8 1 &gt; <a href="./log_n8_p1.txt" target="_blank">log_n8_p1.txt</a></li>
+        <li>./vcube 8 10 &gt; <a href="./log_n8_p10.txt" target="_blank">log_n8_p10.txt</a></li>
+        <li>./vcube 8 30 &gt; <a href="./log_n8_p30.txt" target="_blank">log_n8_p30.txt</a></li>
+        <li>./vcube 8 50 &gt; <a href="./log_n8_p50.txt" target="_blank">log_n8_p50.txt</a></li>
+        <li>./vcube 8 70 &gt; <a href="./log_n8_p70.txt" target="_blank">log_n8_p70.txt</a></li>
+    </ul>
+
+</body>
+</html>

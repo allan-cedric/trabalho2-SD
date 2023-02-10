@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+make
+for i in 1 10 30 50 70
+do
+    for j in 4 8
+    do
+        ./vcube $j $i > log_n${j}_p${i}.txt
+    done
+done
